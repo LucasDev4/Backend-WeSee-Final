@@ -142,3 +142,9 @@ O servidor sobe em `0.0.0.0:8080`, então um celular na mesma rede acessa por `h
    `guidance` (alerta do objeto mais urgente, ex.: "Pessoa muito próxima à sua frente") e `scene` (**tudo** que a câmera vê, ex.: "Vejo duas pessoas à sua frente e um carro muito próximo à sua direita.").
 3. Vocabulário em português das **25 classes** do modelo em `PriorityRules` (rua e prédio entram só na descrição, nunca como alerta). Teste: `GuidanceSceneTest`.
 4. Teste ponta a ponta com a IA ligada: `python scripts/smoke_test.py --ia`.
+
+## Publicado no Render
+Variáveis de ambiente do serviço: `DB_URL`/`DB_USERNAME`/`DB_PASSWORD` (conforme o seu `application.properties`), `JWT_SECRET`, `VINCULO_CODE_SECRET`
+e **`ATLAS_AI_BASE_URL`** (endereço público da IA; sem ela `/detect` responde 503 e o app mostra "A IA está indisponível agora").
+O app (padrão) fala com `https://backend-wesee-final.onrender.com/`. Confira com `python scripts/smoke_test.py https://backend-wesee-final.onrender.com`
+(no plano gratuito a 1ª chamada pode levar ~1 min para o serviço acordar).
